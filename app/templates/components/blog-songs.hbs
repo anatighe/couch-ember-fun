@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-5">
+      <button {{action 'createSong'}}>Create</button>
+      <table class='table'>
+        <thead>
+          <tr><th>Songs</th></tr>
+        </thead>
+        <tbody>
+          {{#each pagedContent as |song|}}
+        <tr><td>
+          {{#link-to 'song' song}}
+            {{song.title}}
+          {{/link-to}}
+        </td></tr>
+        {{/each}}
+        </tbody>
+      </table>
+      {{page-numbers content=pagedContent}}
+    </div>
+
+    <div class="col-xs-7">
+      {{yield}}
+    </div>
+  </div>
+</div>
